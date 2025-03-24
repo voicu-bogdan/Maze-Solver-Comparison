@@ -14,10 +14,13 @@ def readOutput():
     pass
 
 def printLabyrinth(labyrinth):
+    empty, wall, path = 0, 1, 3
     for row in labyrinth:
         for tile in row:
-            if tile == 0:
+            if tile == empty:
                 print("■", end=" ")
-            elif tile == 1:
+            elif tile == wall:
                 print("□", end=" ")
+            elif tile == path:
+                print("▩", end=" ")
         print()
