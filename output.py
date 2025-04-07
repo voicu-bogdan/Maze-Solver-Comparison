@@ -1,4 +1,5 @@
 fileName = "./Output.txt"
+
 def writeOutput(output):
     file = open(fileName, "w")
     file.write(output)
@@ -8,10 +9,16 @@ def clearOutput():
     writeOutput("")
 
 def addOutput(output):
-    pass
+    current = readOutput()
+    current.append(output)
+    writeOutput("\n".join(current))
 
 def readOutput():
-    pass
+    try:
+        with open(fileName, "r") as file:
+            return file.read().splitlines()
+    except FileNotFoundError:
+        return []
 
 def printLabyrinth(labyrinth):
     empty, wall, path = 0, 1, 3
